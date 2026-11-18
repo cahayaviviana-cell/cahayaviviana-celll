@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website profil pribadi Viviana Cahaya Putri.">
+  <title>Profil | Viviana Cahaya Putri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #e879a8;
+      --deep: #a83269;
+      --text: #49313d;
+      --muted: #806875;
+      --glass: rgba(255,255,255,.76);
+    }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #fff0f6 0%, #f9c9dc 48%, #e9b5df 100%);
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, 90%); margin: auto; }
+    header {
+      padding: 22px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { font-weight: 700; color: var(--deep); letter-spacing: .4px; }
+    nav { display: flex; gap: 24px; flex-wrap: wrap; font-size: .92rem; }
+    nav a { color: #70465c; transition: color .2s; }
+    nav a:hover { color: var(--deep); }
+    .hero {
+      min-height: 490px;
+      display: grid; grid-template-columns: 1.15fr .85fr;
+      align-items: center; gap: 42px; padding: 54px 0 70px;
+    }
+    .eyebrow {
+      display: inline-block; padding: 8px 15px; border-radius: 30px;
+      background: rgba(255,255,255,.6); color: var(--deep);
+      font-size: .85rem; font-weight: 700; letter-spacing: .5px;
+    }
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.6rem, 6vw, 4.7rem);
+      line-height: 1.08; margin: 20px 0 16px;
+      color: #713451;
+    }
+    h1 span { color: #c44d83; }
+    .hero p { color: #755b69; line-height: 1.8; max-width: 570px; }
+    .button {
+      display: inline-block; margin-top: 18px; padding: 13px 23px;
+      border-radius: 30px; color: white; font-weight: 700;
+      background: linear-gradient(110deg, #d95e96, #a94383);
+      box-shadow: 0 9px 22px rgba(169,67,131,.22);
+      transition: transform .2s;
+    }
+    .button:hover { transform: translateY(-3px); }
+    .portrait-wrap { display: flex; justify-content: center; }
+    .portrait {
+      width: min(330px, 80vw); aspect-ratio: 1;
+      border-radius: 48% 52% 42% 58% / 45% 42% 58% 55%;
+      background: linear-gradient(145deg, #fffafd, #e98db8);
+      display: grid; place-items: center; text-align: center;
+      border: 10px solid rgba(255,255,255,.7);
+      box-shadow: 0 25px 60px rgba(137,61,101,.18);
+      color: #9f4772; padding: 30px;
+    }
+    .portrait .symbol { font-size: 5rem; line-height: 1; }
+    .portrait small { display: block; margin-top: 14px; font-weight: 600; }
+    section { padding: 38px 0 62px; }
+    .section-title { text-align: center; margin-bottom: 30px; }
+    .section-title h2 {
+      font: 700 clamp(2rem, 4vw, 2.8rem) "Playfair Display", serif;
+      color: #713451; margin: 0 0 8px;
+    }
+    .section-title p { color: var(--muted); margin: 0; }
+    .card {
+      background: var(--glass); border: 1px solid rgba(255,255,255,.75);
+      border-radius: 22px; padding: 28px;
+      box-shadow: 0 14px 38px rgba(135,65,101,.09);
+      backdrop-filter: blur(8px);
+    }
+    .biodata { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .info {
+      padding: 17px 18px; background: rgba(255,240,247,.85);
+      border-radius: 15px;
+    }
+    .info small { display: block; color: #a15d7e; margin-bottom: 5px; }
+    .info strong { overflow-wrap: anywhere; }
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .skill-card { text-align: center; }
+    .skill-icon {
+      width: 76px; height: 76px; display: grid; place-items: center;
+      margin: 0 auto 15px; border-radius: 24px;
+      background: linear-gradient(135deg, #ffe2ef, #f1c2df); font-size: 2.2rem;
+    }
+    .skill-card h3 { color: #8e3e68; margin: 8px 0; }
+    .skill-card p { color: var(--muted); line-height: 1.7; margin: 0; }
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .gallery-item {
+      min-height: 210px; border-radius: 22px; overflow: hidden;
+      display: flex; flex-direction: column; justify-content: end;
+      padding: 22px; color: white;
+      background: linear-gradient(145deg, rgba(116,45,83,.05), rgba(116,45,83,.68)),
+        linear-gradient(135deg, #f6b4d0, #c76c9e);
+      box-shadow: 0 12px 30px rgba(135,65,101,.13);
+    }
+    .gallery-item:nth-child(2) {
+      background: linear-gradient(145deg, rgba(116,45,83,.04), rgba(116,45,83,.65)),
+        linear-gradient(135deg, #e8a7d3, #b45a91);
+    }
+    .gallery-item .big { font-size: 3.2rem; margin-bottom: auto; }
+    .gallery-item h3 { margin: 0 0 5px; font-size: 1.25rem; }
+    .gallery-item p { margin: 0; opacity: .92; font-size: .92rem; }
+    footer { text-align: center; padding: 28px 15px 35px; color: #80536b; font-size: .9rem; }
+    @media (max-width: 700px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { gap: 14px; }
+      .hero { grid-template-columns: 1fr; text-align: center; padding-top: 35px; gap: 30px; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .portrait-wrap { grid-row: 1; }
+      .biodata, .skills, .gallery { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <a class="brand" href="#beranda">✿ VIVIANA</a>
+    <nav aria-label="Navigasi utama">
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#skill">Skill</a>
+      <a href="#galeri">Galeri</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="beranda">
+      <div>
+        <span class="eyebrow">HALO, SELAMAT DATANG!</span>
+        <h1>Hai, aku <span>Viviana</span></h1>
+        <p>Selamat datang di website profil pribadiku. Di sini kamu bisa mengenal sedikit tentang diriku, keterampilan yang aku miliki, dan hal-hal yang aku sukai.</p>
+        <a class="button" href="#tentang">Kenali Aku ✧</a>
+      </div>
+      <div class="portrait-wrap">
+        <div class="portrait" role="img" aria-label="Ilustrasi dekoratif profil">
+          <div><div class="symbol">🌷</div><small>Viviana Cahaya Putri</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="tentang">
+      <div class="section-title">
+        <h2>Tentang Saya</h2>
+        <p>Kenalan lebih dekat denganku</p>
+      </div>
+      <div class="card biodata">
+        <div class="info"><small>Nama</small><strong>Viviana Cahaya Putri</strong></div>
+        <div class="info"><small>Email</small><strong>Kontak pribadi tidak ditampilkan</strong></div>
+        <div class="info"><small>Alamat umum</small><strong>Kabupaten Blitar, Jawa Timur</strong></div>
+        <div class="info"><small>Hobi</small><strong>Menari</strong></div>
+        <div class="info"><small>Skill / Keterampilan</small><strong>Memasak</strong></div>
+        <div class="info"><small>Kepribadian</small><strong>Kreatif dan suka mencoba hal baru</strong></div>
+      </div>
+    </section>
+
+    <section class="container" id="skill">
+      <div class="section-title">
+        <h2>Skill & Hobi</h2>
+        <p>Hal yang aku sukai dan terus ingin kembangkan</p>
+      </div>
+      <div class="skills">
+        <article class="card skill-card">
+          <div class="skill-icon">🍳</div>
+          <h3>Memasak</h3>
+          <p>Aku senang memasak dan mencoba membuat berbagai hidangan. Memasak menjadi keterampilan yang ingin terus aku kembangkan.</p>
+        </article>
+        <article class="card skill-card">
+          <div class="skill-icon">💃</div>
+          <h3>Menari</h3>
+          <p>Menari adalah hobiku. Melalui tarian, aku bisa mengekspresikan diri, melatih kreativitas, dan menikmati musik.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="galeri">
+      <div class="section-title">
+        <h2>Galeri Skill</h2>
+        <p>Cuplikan keterampilan dan hobiku</p>
+      </div>
+      <div class="gallery">
+        <article class="gallery-item">
+          <div class="big">🥗</div>
+          <h3>Cooking Time</h3>
+          <p>Belajar dan berkreasi melalui masakan.</p>
+        </article>
+        <article class="gallery-item">
+          <div class="big">🌸</div>
+          <h3>Dancing Moments</h3>
+          <p>Menyalurkan ekspresi melalui gerakan tari.</p>
+        </article>
+      </div>
+      <p style="text-align:center;color:#80536b;font-size:.9rem;margin-top:18px">
+        Tips: Ganti ilustrasi emoji di galeri dengan foto hasil masakan dan foto saat menari milikmu sendiri jika ingin menambahkan dokumentasi.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Dibuat dengan ♡ oleh Viviana Cahaya Putri · 2026
+  </footer>
+</body>
+</html>
